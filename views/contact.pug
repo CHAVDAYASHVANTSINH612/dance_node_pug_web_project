@@ -1,0 +1,37 @@
+extends base.pug
+
+block scripts 
+    script(src="../static/index.js")
+
+block style 
+    link(rel="stylesheet", href="../static/style.css") 
+    link(rel="stylesheet", href="../static/contact.css")
+    
+
+
+block content 
+    
+    nav#navbar          
+                ul 
+                    li  #[a(href="/home") Home]                  
+                    li  #[a(href="/") Classes Info]          
+                    li  #[a(href="/") Services]         
+                    li  #[a(href="/") About Us]         
+                    li  #[a(href="/contact") Contact Us]  
+    div.mycontact                
+        h1 Contact Us
+
+        form(action="/contactpost" method="POST" id="contactform")
+            input(type="text" name="name1" placeholder="enter your name" class="item")         
+            input(type="phone" name="phone1" placeholder="enter your phone number" class="item")         
+            input(type="email" name="email1"  placeholder="enter your email" class="item")         
+            input(type="textarea" name="message1" placeholder="enter your Message/preference" class="item")   
+            button(class="btn") 
+              | submit   
+
+            h3.submited            
+
+
+    
+    footer 
+        p copyrights @copy 2022 all rights resreved by danceclasses.in             
