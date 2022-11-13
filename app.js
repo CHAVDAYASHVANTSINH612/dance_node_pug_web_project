@@ -232,8 +232,8 @@ transporter.sendMail(mailOptions,function(err,data){
 
 })
 
-  
-res.redirect('/contact');
+
+res.redirect('/home');
 
 
 });
