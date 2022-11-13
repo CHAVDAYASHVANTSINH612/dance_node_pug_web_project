@@ -22,6 +22,9 @@ const bodyparser=require("body-parser");
 const mysql=require('mysql');
 const { userInfo } = require("os");
 
+const nodemailer = require("nodemailer");
+var smtpTransport = require("nodemailer-smtp-transport");
+
 
 
 // mongoose.connect('mongodb://localhost/contactDance',{useNewUrlParser:true,useUnifiedTopology: true});
@@ -146,9 +149,51 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
 
              });
 
-             res.send("data submited we will contact you soon");
-     res.redirect('/home');
-     
+    //          res.send("data submited we will contact you soon");
+    //  res.redirect('/home');
+
+
+    //below code is for sending data to email
+
+    // let transporter = nodemailer.createTransport({
+    //     host: 'smtp.gmail.com',
+    //     port: 465,
+    //     secure: true,
+    //     service: 'gmail',
+    //     auth: {
+    //           type: "OAUTH2",
+    //           user: 'yashvantsinhchavda4362@gmail.com',  //set these in your .env file
+    //           clientId: '438788459044-tpolgqpm1hcrgman0gabp9o11au86jda.apps.googleusercontent.com',
+    //           clientSecret: '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',
+    //           refreshToken: '1//04UAQNAdO6PuMCgYIARAAGAQSNwF-L9IrLpZrHawZvYvwsvlI0cyZIQ72tJDlOtp78xByBdvItqh1aAC82TJ0yTVMZl6lPOtZP3Q',
+    //           accessToken: 'ya29.a0AeTM1iev2PuUkPe6lcgs8AFCNgxx-SeaEvldqhFZ7nt9lvGFcwUx8bOosuUHQp4pjNRmh4iTJ1xY9oJQFlq25qiD0Gmeb5OI5UjhGtg8O6E2N5LVk-Xl1_2uFqfh_p_CfhrTHpOJVuKZO8US5Z_w0G7XVzrXaCgYKAeASARASFQHWtWOmfv3SoviwGDhqTKdLCibXyg0163',
+    //           expires: 3599
+    //     }
+
+    // // thats the key part, without all these it didn't work for me
+    
+    // });
+
+    // // mail options
+    // const mailOptions = {
+    //     from: req.body.email1,
+    //     to: "yashvantsinhchavda2461@gmail.com",
+    //     subject: "your website form data",
+    //     text: req.body
+    //   };
+    //   // here we actually send it
+    //   transporter.sendMail(mailOptions, function(err, info) {
+    //     if (err) {
+    //       console.log("Error sending message: " + err);
+    //     } else {
+    //       // no errors, it worked
+    //       console.log("Message sent succesfully.");
+    //     }
+
+    //   });
+
+  
+
 
 });
 
