@@ -192,7 +192,33 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
 
     //   });
 
+
+
+
+    // 2 email code 2
+
+// const auth={
+
+//    auth: {
+//      api_key: '',
+//      domain: ''
+
+//    }
+
+
+// }
+
+// const transporter = nodemailer.createTransport(mailgun(auth));
+
+
+// const mailOptions={
+//        from:'',
+//        to:'',
+//        subject:'',
+//        text:''
+// }
   
+
 
 
 });
