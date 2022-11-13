@@ -23,7 +23,7 @@ const mysql=require('mysql');
 const { userInfo } = require("os");
 
 const nodemailer = require("nodemailer");
-var smtpTransport = require("nodemailer-smtp-transport");
+var mailgun = require("nodemailer-smtp-transport");
 
 
 
@@ -170,14 +170,14 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
     //           expires: 3599
     //     }
 
-    // // thats the key part, without all these it didn't work for me
+    // thats the key part, without all these it didn't work for me
     
     // });
 
-    // // mail options
+    // mail options
     // const mailOptions = {
     //     from: req.body.email1,
-    //     to: "yashvantsinhchavda2461@gmail.com",
+    //     to: "yashvantsinhchavda4362@gmail.com",
     //     subject: "your website form data",
     //     text: req.body
     //   };
@@ -197,28 +197,43 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
 
     // 2 email code 2
 
-// const auth={
+const auth={
 
-//    auth: {
-//      api_key: '',
-//      domain: ''
+   auth: {
+     api_key: 'e8aa78c9cb38bbaec0d02145b3160dcd-48c092ba-47e5396a',
+     domain: 'sandbox738a24c144fa48eeaa249ab332a8026c.mailgun.org'
 
-//    }
-
-
-// }
-
-// const transporter = nodemailer.createTransport(mailgun(auth));
+   }
 
 
-// const mailOptions={
-//        from:'',
-//        to:'',
-//        subject:'',
-//        text:''
-// }
+}
+
+const transporter = nodemailer.createTransport(mailgun(auth));
+
+
+const mailOptions={
+       from:req.body.email1,
+       to:'yashvantsinhchavda4362@gmail.com',
+       subject:'testing',
+       text:req.body
+}
+
+
+transporter.sendMail(mailOptions,function(err,data){
+
+    if(err){
+        console.log(err);
+    }
+    else{
+        alert('data submitted succsesfully');
+    }
+
+
+
+})
+
   
-
+res.redirect('/contact');
 
 
 });
