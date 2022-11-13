@@ -149,6 +149,8 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
 
              });
 
+             console.log(req.body);
+
     //          res.send("data submited we will contact you soon");
     //  res.redirect('/home');
 
@@ -197,40 +199,45 @@ app.post('/contactpost',(req,res)=>{      // same as '/contact' in contact.pug f
 
     // 2 email code 2
 
-const auth={
+// const auth={
 
-   auth: {
-     api_key: 'e8aa78c9cb38bbaec0d02145b3160dcd-48c092ba-47e5396a',
-     domain: 'sandbox738a24c144fa48eeaa249ab332a8026c.mailgun.org'
+//    auth: {
+//      api_key: 'e8aa78c9cb38bbaec0d02145b3160dcd-48c092ba-47e5396a',
+//      domain: 'sandbox738a24c144fa48eeaa249ab332a8026c.mailgun.org'
 
-   }
-
-
-}
-
-const transporter = nodemailer.createTransport(mailgun(auth));
+//    }
 
 
-const mailOptions={
-       from:req.body.email1,
-       to:'yashvantsinhchavda4362@gmail.com',
-       subject:'testing',
-       text:req.body
-}
+// }
+
+// const transporter = nodemailer.createTransport(mailgun(auth));
 
 
-transporter.sendMail(mailOptions,function(err,data){
-
-    if(err){
-        console.log(err);
-    }
-    else{
-        alert('data submitted succsesfully');
-    }
+// const mailOptions={
+//        from:req.body.email1,
+//        to:'yashvantsinhchavda4362@gmail.com',
+//        subject:'testing',
+//        text:req.body
+// }
 
 
+// transporter.sendMail(mailOptions,function(err,data){
 
-})
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         alert('data submitted succsesfully');
+//     }
+
+
+
+// });
+
+
+// 3 mail code :
+
+let tr
 
 
 res.redirect('/home');
