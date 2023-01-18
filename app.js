@@ -20,10 +20,10 @@ const app=express();
 const  mongoose=require("mongoose");
 const bodyparser=require("body-parser");
 const mysql=require('mysql');
-const { userInfo } = require("os");
 
-const nodemailer = require("nodemailer");
-var mailgun = require("nodemailer-smtp-transport");
+
+// const nodemailer = require("nodemailer");
+// var mailgun = require("nodemailer-smtp-transport");
 
 
 
